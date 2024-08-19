@@ -2,7 +2,7 @@
 
 configVersion = 1
 
-URL = "/documents/get.aspx?type=menuplan&menueplanid=364606&startdate="+startdate.strftime("%d%m%Y")+"&enddate="+enddate.strftime("%d%m%Y")+"&price=hide&ext=xls&title=Speiseplan-Geschwister-Scholl&isFixedPricePlan=false&showProductId=false&showAppro=true&showAllergAbbr=false&showAllergAbbrPerComp=false&nutrients=hide&menulines=513112,513113&timerange=week&format=A4&printlanguagecode=German&languagecode=D&showThumbs=0", headers={"Host": "speiseplanung.apetito.de", "Accept": "*/*", "Accept-Language": "de,en-US;q=0.7,en;q=0.3", "Accept-Encoding": "gzip, deflate, br", "Referer": " https://speiseplanung.apetito.de/documents/get.aspx?type=printannouncement&startDate=18122023&endDate=22122023&menuePlanId=364606&menulines=513112,513113&printlanguagecode=German&multiLingual=true&token=D826DD11269A4473369AF4C8FA652B09&languagecode=D"
+URL = "/documents/get.aspx?type=menuplan&menueplanid=364606&startdate={}&enddate={}&price=hide&ext=xls&title=Speiseplan-Geschwister-Scholl&isFixedPricePlan=false&showProductId=false&showAppro=true&showAllergAbbr=false&showAllergAbbrPerComp=false&nutrients=hide&menulines=513112,513113&timerange=week&format=A4&printlanguagecode=German&languagecode=D&showThumbs=0"
 
 filepath="output.html" # Where to save the resulting file
 
