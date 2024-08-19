@@ -33,7 +33,7 @@ while True:
                 startdate=t
             enddate=startdate+datetime.timedelta(days=7)
             
-            conn.request("GET", URL, "Authorization": authorization, "DNT": " 1", "Connection": " keep-alive", "Cookie": cookie, "Sec-Fetch-Dest": " empty", "Sec-Fetch-Mode": " cors", "Sec-Fetch-Site": " same-origin"})
+            conn.request("GET", URL.format(startdate.strftime("%d%m%Y"), enddate.strftime("%d%m%Y")), headers={"Host": "speiseplanung.apetito.de", "Accept": "*/*", "Accept-Language": "de,en-US;q=0.7,en;q=0.3", "Accept-Encoding": "gzip, deflate, br", "Authorization": authorization, "DNT": " 1", "Connection": " keep-alive", "Cookie": cookie, "Sec-Fetch-Dest": " empty", "Sec-Fetch-Mode": " cors", "Sec-Fetch-Site": " same-origin"})
             resp=conn.getresponse()
             timestamp = datetime.datetime.now()
             respb=resp.read() #the servers response data in bytes
