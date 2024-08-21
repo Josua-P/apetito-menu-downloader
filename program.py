@@ -9,7 +9,7 @@ from xlrd.sheet import *
 import locale
 
 ########## CODE ##########
-config = open("config.py").read()
+config = open("config.py", "r").read()
 configVersion = -1
 exec(config)
 if configVersion != 1:
