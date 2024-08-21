@@ -23,3 +23,26 @@ This Program downloads a menu from the food deliverer Apetito and puts the data 
 10. Finally, in the packet window, search the request headers (the lower ones) for the values authentication and cookie.
 11. Paste these strings into the authentication file (auths.txt). The first line is the authentication, the second line the cookie.
    ***Be careful!*** These strings can be used to do *anything* on your account, including transactions and orders. You should *never* give them to anyone, even when asked. If they are leaked, immediately go to your Apetito account settings and sign out on all devices. This will require a complete redo of steps 2-5 and 9-10.
+
+
+### The config
+The config delivered with the starterpack works for most cases. One thing you might be interested in is changing the program's language to display months and weekdays correctly. Just change the language tag to your [POSIX language code](https://learn.microsoft.com/en-us/globalization/locale/other-locale-names#posix). The config itself is also commented, so you'll mostly see there what each option does.
+
+If you want to add your own touch to the program, it might be worth knowning that the entire config.py-file is executed on startup. This means that, if you want to add a function, variables etc, you should add them there, so you can better update the program if a new release comes out, as the config is meant to be persistent over updates.
+
+### The template
+The program uses the file "Template.txt" (per default) to compile its data into a usable file. This works by it replacing certain tags in the file with data:
+ - ```{a[day]}``` and ```{b[day]}``` placehold for the menu lines, where day means days from the startdate
+- ```{d[day]}``` gives the day.
+- ```{m[day]}``` gives the month or the content of monthEmpty (see above).
+- ```{wd[day]}``` gives the weekday.
+- ```{ts}``` gives the timestamp of the plan. The format can be specified with tsTimeFormat.
+- ```{kw}``` gives the calendar week.
+
+The starterpack also contains an example template, so you can get a feeling for the syntax.
+
+If any other placeholders are required, feel free to insert them in line 91.
+
+## Problems?
+
+If any problems or bugs should arise, please feel free to [open an issue](https://github.com/Josua-P/apetito-menu-downloader/issues). I will try to help you as soon as I can!
