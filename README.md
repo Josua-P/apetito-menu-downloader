@@ -22,6 +22,7 @@ This Program downloads a menu from the food deliverer Apetito and puts the data 
    ```
 10. Finally, in the packet window, search the request headers (the lower ones) for the values authentication and cookie.
 11. Paste these strings into the authentication file (auths.txt). The first line is the authentication, the second line the cookie.
+    
    ***Be careful!*** These strings can be used to do *anything* on your account, including transactions and orders. You should *never* give them to anyone, even when asked. If they are leaked, immediately go to your Apetito account settings and sign out on all devices. This will require a complete redo of steps 2-5 and 9-10.
 
 
