@@ -1,6 +1,8 @@
 # apetito-menu-downloader
 Simple Python program that can download menu plans from Apetito
 
+[![de-DE](German Readme)](https://github.com/Josua-P/apetito-menu-downloader/blob/README.de-DE.md)
+
 ## How to use
 This Program downloads a menu from the food deliverer Apetito and puts the data into a pre-defined Template. It is optimized on HTML, so you can display the data on e.g. a screen for all coworkers / students to see. It can be used to compile a printed sheet as well.
 
@@ -16,7 +18,7 @@ This Program downloads a menu from the food deliverer Apetito and puts the data 
    ```
    ...&startdate=123456&enddate=987654&...
    ```
-8. Replace the two 6-digit numbers with two curly brackets ( ˋ{}ˋ ). This enables the program to dynamically change the plan's timeframe. It should look something like this:
+8. Replace the two 6-digit numbers with two curly brackets ( ```{}``` ). This enables the program to dynamically change the plan's timeframe. It should look something like this:
    ```
    ...&startdate={}&enddate={}&...
    ```
@@ -33,7 +35,7 @@ If you want to add your own touch to the program, it might be worth knowning tha
 
 ### The template
 The program uses the file "Template.html" (per default) to compile its data into a usable file. This works by it replacing certain tags in the file with data:
- - ```{a[day]}``` and ```{b[day]}``` placehold for the menu lines, where day means days from the startdate
+ - ```{a[day]}``` and ```{b[day]}``` placehold for the menu lines, where day means days from the startdate (e.g. 0 for the startdate)
 - ```{d[day]}``` gives the day.
 - ```{m[day]}``` gives the month or the content of monthEmpty (see above).
 - ```{wd[day]}``` gives the weekday.
