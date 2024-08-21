@@ -31,7 +31,7 @@ The config delivered with the starterpack works for most cases. One thing you mi
 If you want to add your own touch to the program, it might be worth knowning that the entire config.py-file is executed on startup. This means that, if you want to add a function, variables etc, you should add them there, so you can better update the program if a new release comes out, as the config is meant to be persistent over updates.
 
 ### The template
-The program uses the file "Template.txt" (per default) to compile its data into a usable file. This works by it replacing certain tags in the file with data:
+The program uses the file "Template.html" (per default) to compile its data into a usable file. This works by it replacing certain tags in the file with data:
  - ```{a[day]}``` and ```{b[day]}``` placehold for the menu lines, where day means days from the startdate
 - ```{d[day]}``` gives the day.
 - ```{m[day]}``` gives the month or the content of monthEmpty (see above).
