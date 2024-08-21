@@ -28,6 +28,7 @@ tsTimeFormat = "Aktualisiert am %d.%m. um %X." # Format for the timestamp in the
 language = 'de_DE' # Language setting compliant to POSIX Standard (e.g. "en_US" -> English)
 
 template = open("Template.txt", "r").read() # The Template used for the plan.
+
       # DEBUG ZONE #
 
 debugMode = False # Prints debug information
