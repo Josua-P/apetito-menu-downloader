@@ -1,6 +1,6 @@
 configVersion = 1 #DO NOT CHANGE!
 
-URL = "/documents/get.aspx?type=menuplan&menueplanid=364606&startdate={}&enddate={}&price=hide&ext=xls&title=Speiseplan-Geschwister-Scholl&isFixedPricePlan=false&showProductId=false&showAppro=true&showAllergAbbr=false&showAllergAbbrPerComp=false&nutrients=hide&menulines=513112,513113&timerange=week&format=A4&printlanguagecode=German&languagecode=D&showThumbs=0"
+URL = ""
 
 filepath="output.html" # Where to save the resulting file
 
