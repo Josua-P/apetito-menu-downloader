@@ -28,26 +28,6 @@ tsTimeFormat = "Aktualisiert am %d.%m. um %X." # Format for the timestamp in the
 language = 'de_DE' # Language setting compliant to POSIX Standard (e.g. "en_US" -> English)
 
 template = open("Template.txt", "r").read() # The Template used for the plan.
-    #
-    # It supports the following syntax for replacement:
-    #
-    # - {a[day]} and {b[day]} placehold for the menu lines, where day means days from the startdate
-    #
-    # - {t[day]} is used for the date. The format can be specified with timeFormat. (v1.1: Use d, m and wd instead)
-    #
-    # - {d[day]} gives the day.
-    #
-    # - {m[day]} gives the month or the content of monthEmpty (see above).
-    #
-    # - {wd[day]} gives the weekday.
-    #
-    # - {ts} gives the timestamp of the plan. The format can be specified with tsTimeFormat.
-    #
-    # - {kw} gives the calendar week.
-    #
-    # If any other placeholders are required, feel free to insert them in line 146.
-
-
       # DEBUG ZONE #
 
 debugMode = False # Prints debug information
