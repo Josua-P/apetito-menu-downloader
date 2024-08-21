@@ -19,6 +19,8 @@ auths = open("auths.txt", "r").readlines()
 authorization = auths[0].strip()
 cookie = auths[1].strip()
 
+locale.setlocale(locale.LC_ALL, language)
+
 cAttempts=0
 while True:
     conn=http.client.HTTPSConnection("speiseplanung.apetito.de", timeout=timeout) #Connection to the server
