@@ -1,6 +1,8 @@
 # apetito-menu-downloader
 Einfaches Python-Programm, das Menüpläne von Apetito herunterladen kann
 
+[English readme](https://github.com/Josua-P/apetito-menu-downloader/blob/main/README.md)
+
 ## Verwendung
 Dieses Programm lädt ein Menü vom Essenslieferanten Apetito herunter und fügt die Daten in eine vordefinierte Vorlage ein. Es ist für HTML optimiert, sodass Sie die Daten z. B. auf einem Bildschirm anzeigen können, damit alle Mitarbeiter/Schüler sie sehen können. Es kann auch verwendet werden, um einen Aushang zusammenzustellen.
 
