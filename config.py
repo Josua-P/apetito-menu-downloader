@@ -1,6 +1,4 @@
-######### CONFIG #########
-
-configVersion = 1
+configVersion = 1 #DO NOT CHANGE!
 
 URL = "/documents/get.aspx?type=menuplan&menueplanid=364606&startdate={}&enddate={}&price=hide&ext=xls&title=Speiseplan-Geschwister-Scholl&isFixedPricePlan=false&showProductId=false&showAppro=true&showAllergAbbr=false&showAllergAbbrPerComp=false&nutrients=hide&menulines=513112,513113&timerange=week&format=A4&printlanguagecode=German&languagecode=D&showThumbs=0"
 
@@ -27,7 +25,7 @@ wdFormat = "%a" # Format for the weekday.
 tsTimeFormat = "Aktualisiert am %d.%m. um %X." # Format for the timestamp in the plan.
 
 
-locale.setlocale(locale.LC_ALL, 'de_DE') # Language setting
+language = 'de_DE' # Language setting compliant to POSIX Standard (e.g. "en_US" -> English)
 
 template = open("Template.txt", "r").read() # The Template used for the plan.
     #
@@ -52,7 +50,7 @@ template = open("Template.txt", "r").read() # The Template used for the plan.
 
       # DEBUG ZONE #
 
-debugMode = True # Prints debug information
+debugMode = False # Prints debug information
       
 saveSheet = False # Saves the sheet to a file for debugging purposes.
 
