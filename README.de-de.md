@@ -49,7 +49,7 @@ Das Programm verwendet (standardmäßig) die Datei „Template.html“, um seine
 
 Das Starterpaket enthält auch eine Beispielvorlage, damit Sie ein Gefühl für die Syntax bekommen.
 
-Wenn weitere Platzhalter benötigt werden, können Sie diese gerne in Zeile 91 einfügen.
+Wenn weitere Platzhalter benötigt werden, können Sie diese gerne in Zeile 89 einfügen.
 
 ## Probleme?
 
