@@ -70,11 +70,9 @@ while True:
                 D=[]  # Days
                 M=[]  # Months
                 WD=[] # Weekdays
-                ST=[] # Full date as string
                 for t in T: # disassembling T into D, ST, WD and M
                     D.append(t.strftime(dayFormat))
                     WD.append(t.strftime(wdFormat))
-                    ST.append(t.strftime(timeFormat))
                     if t==T[0] or t.day==1 or allMonths:
                         M.append(t.strftime(monthFormat))
                     else:
@@ -88,7 +86,7 @@ while True:
                     print("D=")
                     print(D)
                 
-                result = template.format(a=A, b=B, t=ST, d=D, m=M, wd=WD, kw=startdate.strftime("%W"), ts=timestamp.strftime(tsTimeFormat), auf="{", zu="}") # This inserts the values into the template
+                result = template.format(a=A, b=B, d=D, m=M, wd=WD, kw=startdate.strftime("%W"), ts=timestamp.strftime(tsTimeFormat), auf="{", zu="}") # This inserts the values into the template
                 unsaved=True
                 while unsaved:
                     try:
