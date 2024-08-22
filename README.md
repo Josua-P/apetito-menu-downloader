@@ -44,7 +44,7 @@ The program uses the file "Template.html" (per default) to compile its data into
 
 The starterpack also contains an example template, so you can get a feeling for the syntax.
 
-If any other placeholders are required, feel free to insert them in line 91.
+If any other placeholders are required, feel free to insert them in line 89.
 
 ## Problems?
 
