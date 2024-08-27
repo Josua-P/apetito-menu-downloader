@@ -14,7 +14,7 @@ This Program downloads a menu from the food deliverer Apetito and puts the data 
 3. After doing this, you should find a button titled "Export Excel". *Before* you press it, press right click and activate inspecting mode (press Q). There, go to the network analysis tool. When you have found it, hit the button.
 4. The file you get now is irrelevant, you don't need to save it. The relevant part is that now, the packet for the download should be displayed in the dev console, top entry. Click it.
 5. On the right, a little window should open, showing information about the packet. Copy the url in it's entirety and paste it into the config file (config.py) at the URL entry (probably at the top). ***The braces have to stay!***
-6. Now (in the config), search the url for the entries startdate und entdate. They should look something like this:
+6. Now (in the config), search the url for the entries startdate and enddate. They should look something like this:
    ```
    ...&startdate=123456&enddate=987654&...
    ```
