@@ -25,7 +25,7 @@ wdFormat = "%a" # Format for the weekday.
 tsTimeFormat = "Aktualisiert am %d.%m. um %X." # Format for the timestamp in the plan.
 
 
-language = 'en_US' # Language setting compliant to POSIX Standard (e.g. "en_US" -> English)
+language = 'en_US.utf8' # Language setting compliant to POSIX Standard (e.g. "en_US" -> English)
 
 template = open("Template.html", "r").read() # The Template used for the plan.
 
