@@ -48,7 +48,7 @@ while True:
                 if saveSheet:
                     try:
                         open("latest.xls", "wb").write(respb)
-                    except PermissionException:
+                    except PermissionError:
                         print("Sheet unsaved: Access denied")
                 bk = xlrd.open_workbook(file_contents=respb)
                 sh = bk.sheet_by_index(0) #the sheet with the plan
@@ -97,7 +97,7 @@ while True:
                         with open(filepath, "w") as file:
                             file.write(result)
                         unsaved=False
-                    except PermissionException:
+                    except PermissionError:
                         print("Access to output file denied. Make sure to close all file access after reading!")
                         time.sleep(10)
                         
@@ -122,4 +122,5 @@ while True:
             time.sleep(86400)
 
 #EOF
+
 
