@@ -2,6 +2,8 @@ configVersion = 2 #DO NOT CHANGE!
 
 ID = ""
 
+initDate = datetime.date(y, m, d)
+
 filepath="output.html" # Where to save the resulting file
 
 downloadHour = 7    # When to download the plan
