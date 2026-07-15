@@ -1,6 +1,6 @@
-configVersion = 1 #DO NOT CHANGE!
+configVersion = 2 #DO NOT CHANGE!
 
-URL = ""
+ID = ""
 
 filepath="output.html" # Where to save the resulting file
 
@@ -24,6 +24,7 @@ monthEmpty = "&nbsp;&nbsp;&nbsp;"
 wdFormat = "%a" # Format for the weekday.
 tsTimeFormat = "Aktualisiert am %d.%m. um %X." # Format for the timestamp in the plan.
 
+noDisplay=[]
 
 language = 'en_US.utf8' # Language setting compliant to POSIX Standard (e.g. "en_US.utf8" -> English)
 
