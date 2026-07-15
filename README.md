@@ -55,3 +55,7 @@ If any other placeholders are required, feel free to insert them in line 89.
 ## Problems?
 
 If any problems or bugs should arise, please feel free to [open an issue](https://github.com/Josua-P/apetito-menu-downloader/issues). I will try to help you as soon as I can!
+
+## AI-Disclaimer
+
+This program was created without use of AI.
