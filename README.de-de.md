@@ -10,26 +10,28 @@ Dieses Programm lädt ein Menü vom Essenslieferanten Apetito herunter und fügt
 **Bitte beachten:** Wenn Sie diese Anweisungen verstehen, können Sie jeden Browser verwenden, der sie unterstützt. <br> Sie wurden für Firefox geschrieben, wenn Sie sie also nicht verstehen, *verwenden Sie bitte Firefox!*
 1. Laden Sie die Datei starterpack.zip des neuesten Release herunter und entpacken Sie sie.
 1. Gehen Sie in einem Browser zu dem Plan, den Sie anzeigen möchten, und klicken Sie auf „Drucken“.
-2. Wählen Sie dort „Aushang drucken“ und nehmen Sie die entsprechenden Einstellungen vor.
-3. Danach sollten Sie eine Schaltfläche mit der Bezeichnung „Excel exportieren“ finden. *Bevor* Sie darauf klicken, drücken Sie die rechte Maustaste und aktivieren den Inspektionsmodus (Q). Dort öffnen Sie den Tab "Netzwerkanalyse". Wenn Sie es gefunden haben, drücken Sie den Excel-Export.
-4. Die Datei, die Sie jetzt erhalten, ist irrelevant, Sie müssen sie nicht speichern. Wichtig ist, dass jetzt das Paket für den Download in der Dev-Konsole angezeigt werden sollte. Sie sollten 2 Pakete sehen, eines davon lädt die Ladeanimation (loading-animation.gif). Klicken Sie auf das andere.
-5. Rechts sollte sich ein kleines Fenster öffnen, das Informationen zum Paket anzeigt. Kopieren Sie die URL nach "speiseplanung.apetito.com" komplett (mit führendem Schrägstrich) und fügen Sie sie in die Konfigurationsdatei (config.py) beim URL-Eintrag (wahrscheinlich ganz oben) ein. ***Die Anführungszeichen müssen bleiben!***<br>
-Der Eintrag sollte nun wie folgt aussehen:
+2. Wählen Sie dort den Dokumenttyp „Speiseplan“ und den Dateityp "CSV". Merken Sie sich das eingestellte Startdatum.
+3. Danach sollten Sie eine Schaltfläche mit der Bezeichnung „Erstellen“ finden. *Bevor* Sie darauf klicken, drücken Sie die rechte Maustaste und aktivieren den Inspektionsmodus (Q). Dort öffnen Sie den Tab "Netzwerkanalyse". Wenn Sie es gefunden haben, drücken Sie den Export.
+4. Die Datei, die Sie jetzt erhalten, ist irrelevant, Sie müssen sie nicht speichern. Wichtig ist, dass jetzt das Paket für den Download in der Dev-Konsole angezeigt werden sollte. Sie sollten 2 Pakete sehen, eines davon hat den Typ "GET". Klicken Sie auf dieses.
+5. Rechts sollte sich ein kleines Fenster öffnen, das Informationen zum Paket anzeigt. Kopieren Sie die ID, die sich nach "mealmaster.apetito.com/api/printing-configurations" befindet, bis zum nächsten Schrägstrich und fügen Sie sie in die Konfigurationsdatei (config.py) beim ID-Eintrag (wahrscheinlich ganz oben) ein. ***Die Anführungszeichen müssen bleiben!***<br>
+Der Eintrag sollte nun wie folgt aussehen:<br><br>
    ```
-   URL = "/document/get.aspx?type=...&showThumbs=0"
+   ID = "12345678-abcd-cdef-1357-2468acef4321"
    ```
-6. Suchen Sie nun (in der Konfiguration) in der URL nach den Einträgen startdate und entdate. Diese sollten ungefähr so ​​aussehen:
+6. Suchen Sie nun in der URL nach dem Eintrag startOffset. Dieser sollte eine Nummer haben.
+7. Jetzt müssen Sie ein wenig rechnen: Ziehen Sie von ihrem eingestellten Startdatum die angegebene Zahl an Tagen ab. <br>Z.B.: Bei einem eingestellten Startdatum 26.7.2026 und einem Offset von 15 wäre ihr Ergebnis der 11.7.2026.
+8. Dieses Datum müssen Sie nun in der Config eintragen:<br><br>
    ```
-   ...&startdate=123456&enddate=987654&...
+   initDate = datetime.date(<Jahr>, <Monat>, <Tag>)
    ```
-8. Ersetzen Sie die beiden 6-stelligen Zahlen durch zwei geschweifte Klammern ( ```{}``` ). Dadurch kann das Programm den Zeitrahmen des Plans dynamisch ändern. Es sollte ungefähr so ​​aussehen:
+   Z.B. wäre der 11.7.2026 notiert mit:<br><br>
    ```
-   ...&startdate={}&enddate={}&...
+   datetime.date(2026, 7, 11)
    ```
-10. Suchen Sie abschließend im Paketfenster in den Request-Headern (den unteren) nach den Werten Authentication und Cookie.
-11. Fügen Sie diese Zeichenfolgen in die Authentifizierungsdatei (auths.txt) ein. Die erste Zeile ist die Authentication, die zweite Zeile das Cookie.
+10. Suchen Sie abschließend im Paketfenster in den Request-Headern (den unteren) nach dem Wert Authentication.
+11. Fügen Sie diese Zeichenfolge in die Authentifizierungsdatei (auths.txt) ein.
 
-***Achtung!*** Diese Zeichenfolgen können verwendet werden, um *alles* auf Ihrem Konto zu tun, einschließlich Transaktionen und Bestellungen. Sie sollten sie *niemals* an jemanden weitergeben, auch nicht auf Anfrage. Wenn sie dennoch an die Öffentlichkeit geraten sind, wenden Sie sich *sofort* an den Kundensupport und bitten sie um eine "Abmeldung von allen Geräten". Dies erfordert eine vollständige Wiederholung der Schritte 2-10.
+***Achtung!*** Diese Zeichenfolge kann verwendet werden, um *alles* auf Ihrem Konto zu tun, einschließlich Transaktionen und Bestellungen. Sie sollten sie *niemals* an jemanden weitergeben, auch nicht auf Anfrage. Wenn sie dennoch an die Öffentlichkeit geraten ist, ändern Sie *sofort* ihr Passwort. Dies erfordert eine vollständige Wiederholung der Schritte 2-10.
 
 ### Die Konfiguration
 Die mit dem Starterpaket gelieferte Konfiguration funktioniert in den meisten Fällen. Eine Einstellung, die Sie vielleicht interessieren könnte, ist die Änderung der Programmsprache, um Monate und Wochentage korrekt anzuzeigen. Ändern Sie einfach den language-Tag in Ihren [POSIX-Sprachcode](https://learn.microsoft.com/en-us/globalization/locale/other-locale-names#posix). Für Deutsch lautet dieser ```'de_DE.utf8'```. Die Konfiguration selbst ist zudem kommentiert, sodass Sie dort meistens sehen, was jede Option bewirkt.
@@ -53,7 +55,7 @@ Das Programm verwendet (standardmäßig) die Datei „Template.html“, um seine
 
 Das Starterpaket enthält auch eine Beispielvorlage, damit Sie ein Gefühl für die Syntax bekommen.
 
-Wenn weitere Platzhalter benötigt werden, können Sie diese gerne in Zeile 89 einfügen.
+Wenn weitere Platzhalter benötigt werden, können Sie diese gerne in Zeile 171 einfügen.
 
 ## Probleme?
 
