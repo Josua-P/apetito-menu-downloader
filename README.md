@@ -10,26 +10,28 @@ This Program downloads a menu from the food deliverer Apetito and puts the data 
 **Please note:** If you understand these instructions, you can use any browser that supports them. <br> They have been written for firefox, so if you don't understand them, *please use firefox!*
 1. Download and unpack the starterpack.zip file from the latest release.
 1. In a browser, go to the plan you want to display and press "Print".
-2. There, select "Print notice" and make the appropiate settings.
-3. After doing this, you should find a button titled "Export Excel". *Before* you press it, press right click and activate inspecting mode (Q). There, go to the network analysis tool. When you have found it, press the button.
-4. The file you get now is irrelevant, you don't need to save it. The relevant part is that now, the packet for the download should be displayed in the dev console. There will be two packets, one for the loading animation. Click the other.
-5. On the right, a little window should open, showing information about the packet. Copy the url after "speiseplanung.apetito.de" and paste it into the config file (config.py) at the URL entry (probably at the top). ***The braces have to stay!***
-After this, the line should look something like this:
+2. There, select "Menu" and the document type "CSV". Remember the start date, it is required later.
+3. After doing this, you should find a button titled "Create". *Before* you press it, press right click and activate inspecting mode (Q). There, go to the network analysis tool. When you have found it, press the button.
+4. The file you get now is irrelevant, you don't need to save it. The relevant part is that now, the packet for the download should be displayed in the dev console. There will be two packets, one is of the type "GET". Click that one.
+5. On the right, a little window should open, showing information about the packet. Copy the ID after "mealmaster.apetito.de/api/printing-configurations" up to the next slash and paste it into the config file (config.py) at the ID entry (probably at the top). ***The braces have to stay!***
+After this, the line should look something like this:<br><br>
    ```
-    URL = "/document/get.aspx?type=...&showThumbs=0"
+   ID = "12345678-abcd-cdef-1357-2468acef4321"
    ```
-6. Now (in the config), search the url for the entries startdate and enddate. They should look something like this:
+6. Now  search the url for the entry startOffset. It should be followed by a number.
+7. Now it's time to calculate: Subtract the number off the selected start date.<br>e.g.: If the start date was 26th July 2026, and an offset of 15, your result would be 11th July 2026.
+8. That date must now be entered into the config:<br><br>
    ```
-   ...&startdate=123456&enddate=987654&...
+   initDate = datetime.date(<year>, <month>, <day>)
    ```
-8. Replace the two 6-digit numbers with two curly brackets ( ```{}``` ). This enables the program to dynamically change the plan's timeframe. It should look something like this:
+   For example, the 11th July 2026 would be noted as:<br><br>
    ```
-   ...&startdate={}&enddate={}&...
+   datetime.date(2026, 7, 11)
    ```
-10. Finally, in the packet window, search the request headers (the lower ones) for the values authentication and cookie.
-11. Paste these strings into the authentication file (auths.txt). The first line is the authentication, the second line the cookie.
+10. Finally, in the packet window, search the request headers (the lower ones) for the value authentication.
+11. Paste this string into the authentication file (auths.txt).
     
-   ***Be careful!*** These strings can be used to do *anything* on your account, including transactions and orders. You should *never* give them to anyone, even when asked. If they are leaked, *immediately* contact customer support and request a "sign out on all devices". This will require a complete redo of steps 2-10.
+   ***Be careful!*** That string can be used to do *anything* on your account, including transactions and orders. You should *never* give it to anyone, even when asked. If they are leaked, *immediately* change your password. This will require a complete redo of steps 2-10.
 
 
 ### The config
