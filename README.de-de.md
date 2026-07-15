@@ -60,3 +60,7 @@ Wenn weitere Platzhalter benötigt werden, können Sie diese gerne in Zeile 171 
 ## Probleme?
 
 Sollten Probleme oder Fehler auftreten, können Sie gerne [ein Problem melden](https://github.com/Josua-P/apetito-menu-downloader/issues). Ich werde versuchen, Ihnen so schnell wie möglich zu helfen!
+
+## KI-Hinweis
+
+Dieses Programm wurde ohne den Einsatz von künstlicher Intelligenz erstellt.
