@@ -97,21 +97,6 @@ authorization = auths[0].strip()
 
 locale.setlocale(locale.LC_ALL, language)
 
-def formatMenuEntry(text):
-    lines = text.split(", ")
-    for i in noDisplay:
-        try:
-            lines.remove(i)
-        except:
-            pass
-    ret=""
-    for i in lines:
-        ret+="- "+i+"<br>"
-    return ret
-
-def dateToOffset(date):
-    return (date-initDate).days
-
 cAttempts=0
 while True:
     conn=http.client.HTTPSConnection("mealmaster.apetito.de", timeout=timeout) #Connection to the server
@@ -145,21 +130,6 @@ while True:
                 A=[]
                 B=[]
                 T=[] # Days as datetime.date
-                """if startdate.weekday()==0: # Code if it's a monday: All Menues are listed consecutively.
-                    for i in range(6, 23, 4):
-                        A.append(sh.cell_value(rowx=i, colx=1)[0:-2])
-                    for i in range(6, 23, 4):
-                        B.append(sh.cell_value(rowx=i, colx=2)[0:-2])
-                    for i in range(0, 5):
-                        T.append((startdate+datetime.timedelta(days=i)))
-                else: # Else the programm looks specifically for the gap built in by the website between weeks.
-                    row=6
-                    for i in range(7):
-                        if not (startdate+datetime.timedelta(days=i)).weekday() in [5, 6]:
-                            A.append(sh.cell_value(rowx=row, colx=1)[0:-2])
-                            B.append(sh.cell_value(rowx=row, colx=2)[0:-2])
-                            T.append((startdate+datetime.timedelta(days=i)))
-                        row+=4"""
 
                 for i in range(7):
                     day = startdate+datetime.timedelta(days=i)
