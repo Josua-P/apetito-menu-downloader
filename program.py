@@ -88,7 +88,7 @@ def dateToOffset(date):
 config = open("config.py", "r").read()
 configVersion = -1
 exec(config)
-if configVersion != 1:
+if configVersion != 2:
     raise(Exception("Wrong config version!"))
 
 auths = open("auths.txt", "r").readlines()
